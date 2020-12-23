@@ -109,11 +109,11 @@ const options = {
   // The routes shown here are the default URLs that will be used.
   // @link https://next-auth.js.org/configuration/pages
   pages: {
-    //signIn: '/api/auth/signin',
-    //signOut: '/api/auth/signout',
-    //error: '/api/auth/error', // Error code passed in query string as ?error=
-    //verifyRequest: '/api/auth/verify-request', // (used for check email message)
-    //newUser: null // If set, new users will be directed here on first sign in
+    // signIn: '/api/auth/signin',
+    // signOut: '/api/auth/signout',
+    // error: '/api/auth/error', // Error code passed in query string as ?error=
+    // verifyRequest: '/api/auth/verify-request', // (used for check email message)
+    // newUser: '/newUser' // If set, new users will be directed here on first sign in
   },
 
   // Additional options
