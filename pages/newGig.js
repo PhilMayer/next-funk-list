@@ -17,7 +17,8 @@ export default function newGig({session}) {
         await axios({
             url: '/api/gigs',
             method: 'POST',
-            data: { 'gigName': gigName,
+            data: { 'gigName': gigName + date,
+                    'displayName': gigName,
                     'createdBy': session.user.name, 
                     'date': date,
                     'callTime': callTime,
@@ -26,12 +27,13 @@ export default function newGig({session}) {
                     'description': description,
                     'pay': pay,
                     'status': 'tentative',
-                    'band': { 'trumpets': [], 
-                              'trombones': [], 
-                              'tubas': [], 
-                              'saxes': [], 
-                              'vocals': [],
-                              'drums': []}
+                'band': {
+                    'trumpets': { 'confirmed': [], 'iffy': [], 'nope': []}, 
+                    'trombones': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
+                    'tubas': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
+                    'saxes': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
+                    'vocals': { 'confirmed': [], 'iffy': [], 'nope': [] },
+                    'drums': { 'confirmed': [], 'iffy': [], 'nope': [] }}
                    }
         }).then(response => {
             console.log(response.status)
