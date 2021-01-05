@@ -9,7 +9,7 @@ export default function Gigs ({gigs, musicians}) {
             <ul>
                 {gigs.map(gig => 
                     <li>
-                        <Gig props={gig}/>
+                        <Gig gig={gig} musicians={musicians}/>
                     </li>
                 )}
             </ul>

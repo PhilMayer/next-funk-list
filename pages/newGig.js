@@ -17,7 +17,7 @@ export default function newGig({session}) {
         await axios({
             url: '/api/gigs',
             method: 'POST',
-            data: { 'gigName': gigName + date,
+            data: { 'gigName': (gigName + date).replace(/\s+/g, ''),
                     'displayName': gigName,
                     'createdBy': session.user.name, 
                     'date': date,
