@@ -10,12 +10,11 @@ handler.put(async (req, res) => {
     const gigName = `gigs.${req.body.gigName}`
     console.log(gigName)
     try {
-        const updatedStatus = await db.collection('users').updateOne({ name: req.body.musicianName }, { $set: { [gigName]: req.body.status } })
-
+        await db.collection('users').updateOne({ name: req.body.musicianName }, { $set: { [gigName]: req.body.status } });
     } catch (error) {
         console.log("ERR:", error)
     }
-    res.status(200);
+    res.status(200).end();
 });
 
 

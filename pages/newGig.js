@@ -28,15 +28,21 @@ export default function newGig({session}) {
                     'pay': pay,
                     'status': 'tentative',
                 'band': {
-                    'trumpets': { 'confirmed': [], 'iffy': [], 'nope': []}, 
-                    'trombones': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
-                    'tubas': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
-                    'saxes': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
-                    'vocals': { 'confirmed': [], 'iffy': [], 'nope': [] },
-                    'drums': { 'confirmed': [], 'iffy': [], 'nope': [] }}
+                    'trumpets': [],
+                    'trombones': [],
+                    'tubas': [],
+                    'saxes': [],
+                    'vocals': [],
+                    'drums': []
+                }
+                    // if saving user objects here, don't need separate buckets for status
+                    // 'trumpets': { 'confirmed': [], 'iffy': [], 'nope': []}, 
+                    // 'trombones': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
+                    // 'tubas': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
+                    // 'saxes': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
+                    // 'vocals': { 'confirmed': [], 'iffy': [], 'nope': [] },
+                    // 'drums': { 'confirmed': [], 'iffy': [], 'nope': [] }}
                    }
-        }).then(response => {
-            console.log(response.status)
         })
     }
 
