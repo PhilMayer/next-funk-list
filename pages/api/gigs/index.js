@@ -8,7 +8,7 @@ handler.post(async (req, res) => {
     // get all active users, sort into instrument buckets
     const newGig = await db.collection('gigs').insertOne(req.body);
     console.log("NEW:", newGig.ops);
-    res.status(200);
+    res.status(200).end();
 });
 
 export default handler;

@@ -27,3 +27,35 @@ a {
 hr {
   border: 1px solid #ddd;
 }
+
+.yep {
+  color: green;
+}
+
+.nope {
+  color: red;
+}
+
+.iffy {
+  color: rgb(216, 174, 58);
+}
+
+table {
+  margin-bottom: 40px;
+}
+
+.container{
+    display: flex;
+}
+.fixed{
+    width: 250px;
+}
+.flex-item{
+    flex-grow: 1;
+    margin-top: 63px
+}
+
+button {
+  margin: 0 5px 10px 0;
+}
+

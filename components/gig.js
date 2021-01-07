@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
-const Gig = (props) => {
-    const {gig, musicians, username} = props;
+const Gig = ({ gig, musicians, username }) => {
     const router = useRouter();
     const refreshData = () => {
         router.replace(router.asPath);
@@ -17,41 +16,91 @@ const Gig = (props) => {
             data: { 
                     'status': e.target.value, 
                     'gigName': gig.gigName,
-                    'musicianName': 'Phil Mayer'
+                    'musicianName': username
                 }
         });
         if (res.status === 200) refreshData();
     }
 
     return (
-        <div>
-            <h1>{gig.displayName}</h1>
-            <button value="yep" onClick={e => updateStatus(e)}>Going</button>
-            <button value="iffy" onClick={e => updateStatus(e)}>Iffy</button>
-            <button value="nope" onClick={e => updateStatus(e)}>Nope</button>
-            <p>Date: {gig.date}</p>
-            <p>Pay: ${gig.pay}</p>
-            
-            <h3>Band</h3>
+        <div className="container">
+            <div className="fixed">
+                <h2>{gig.displayName} {gig.date}</h2>
+                <p><b>Status:</b> Tentative</p>
+                <p><b>Venue:</b> 18-26 Palmetto St</p>
+                <p><b>Call Time:</b> 3pm</p>
+                <p><b>Hit Time:</b> 3:10pm</p>
+                <p><b>Captains:</b> Allison duh</p>
+                <p><b>Pay:</b> ${gig.pay}</p>
+                <p><b>Description:</b> {gig.description}</p>
 
-            <h4>Trumpets</h4>
-                {musicians.filter(musician => musician.instrument === 'trumpet').map(musician => 
-                    <p style={musician.gigs[gig.gigName] === "nope" ? { color: 'red' } : { color: 'green' }}>
-                        {musician.displayName}
-                    </p>
-                )}  
-            <h4>Trombones</h4>
-                {musicians.filter(musician => musician.instrument === 'trombone').map(musician =>
-                    <p style={musician.gigs[gig.gigName] === "nope" ? {color:'red'} : {color:'green'}}>
-                        {musician.displayName}
-                    </p>
-                )} 
-            <h4>Saxophones</h4>
-                {musicians.filter(musician => musician.instrument === 'Sax').map(musician =>
-                    <p style={musician.gigs[gig.gigName] === "nope" ? { color: 'red' } : { color: 'green' }}>
-                        {musician.displayName}
-                    </p>
-                )} 
+            </div>
+            <div className="flex-item">
+
+                <button value="yep" onClick={e => updateStatus(e)}>Going</button>
+                <button value="iffy" onClick={e => updateStatus(e)}>Iffy</button>
+                <button value="nope" onClick={e => updateStatus(e)}>Nope</button>
+                <table border="1">
+                    <tr>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td><b>Trombones</b></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {musicians.filter(musician => musician.instrument === 'trombone').map(musician =>
+                                        <tr>
+                                            <td className={musician.gigs[gig.gigName]}>
+                                                {musician.displayName}
+                                            </td>
+                                        </tr>
+                                    )}  
+                                    
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td><b>Trumpets</b></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {musicians.filter(musician => musician.instrument === 'trumpet').map(musician =>
+                                        <tr>
+                                            <td className={musician.gigs[gig.gigName]}>
+                                                {musician.displayName}
+                                            </td>
+                                        </tr>
+                                    )}  
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td><b>Saxophones</b></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {musicians.filter(musician => musician.instrument === 'Sax').map(musician =>
+                                        <tr>
+                                            <td className={musician.gigs[gig.gigName]}>
+                                                {musician.displayName}
+                                            </td>
+                                        </tr>
+                                    )}  
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
         </div>
     )
 }

@@ -6,14 +6,14 @@ export default function Gigs ({gigs, musicians, username}) {
 
     return (
         <div>
-            <h1>The Giglist</h1>
-            <ul>
+            <h1>THE FUNKLIST</h1>
+            
                 {gigs.map(gig => 
-                    <li>
+                    <div>
                         <Gig {...{gig, musicians, username}}/>
-                    </li>
+                    </div>
                 )}
-            </ul>
+            
         </div>
     );
 }

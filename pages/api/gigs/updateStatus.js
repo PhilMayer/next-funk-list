@@ -5,12 +5,11 @@ const handler = nc();
 
 handler.put(async (req, res) => {
     const { db } = await connectToDatabase();
-    // const user = await db.collection('users').findOne({name: req.body.musicianName});
-    // console.log(user)
-    const gigName = `gigs.${req.body.gigName}`
-    console.log(gigName)
+    const { gigName, musicianName, status } = req.body;
+    const dbGigName = `gigs.${gigName}`
+
     try {
-        await db.collection('users').updateOne({ name: req.body.musicianName }, { $set: { [gigName]: req.body.status } });
+        await db.collection('users').updateOne({ name: musicianName }, { $set: { [dbGigName]: status } });
     } catch (error) {
         console.log("ERR:", error)
     }
