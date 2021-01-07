@@ -6,7 +6,7 @@ const Gig = ({ gig, musicians, username }) => {
     const refreshData = () => {
         router.replace(router.asPath);
     }
-
+    
     const updateStatus = async (e) => {
         e.preventDefault();
 
@@ -21,7 +21,7 @@ const Gig = ({ gig, musicians, username }) => {
         });
         if (res.status === 200) refreshData();
     }
-
+    debugger
     return (
         <div className="container">
             <div className="fixed">
@@ -40,6 +40,7 @@ const Gig = ({ gig, musicians, username }) => {
                 <button value="yep" onClick={e => updateStatus(e)}>Going</button>
                 <button value="iffy" onClick={e => updateStatus(e)}>Iffy</button>
                 <button value="nope" onClick={e => updateStatus(e)}>Nope</button>
+                
                 <table border="1">
                     <tr>
                         <td>
@@ -50,14 +51,13 @@ const Gig = ({ gig, musicians, username }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {musicians.filter(musician => musician.instrument === 'trombone').map(musician =>
+                                    {gig.band.trombone.map(name =>
                                         <tr>
-                                            <td className={musician.gigs[gig.gigName]}>
-                                                {musician.displayName}
+                                            <td className={musicians[name].gigs[gig.gigName]}>
+                                                {name}
                                             </td>
                                         </tr>
-                                    )}  
-                                    
+                                    )}
                                 </tbody>
                             </table>
                         </td>
@@ -69,13 +69,13 @@ const Gig = ({ gig, musicians, username }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {musicians.filter(musician => musician.instrument === 'trumpet').map(musician =>
+                                    {gig.band.trumpet.map(name =>
                                         <tr>
-                                            <td className={musician.gigs[gig.gigName]}>
-                                                {musician.displayName}
+                                            <td className={musicians[name].gigs[gig.gigName]}>
+                                                {name}
                                             </td>
                                         </tr>
-                                    )}  
+                                    )}
                                 </tbody>
                             </table>
                         </td>
@@ -87,20 +87,19 @@ const Gig = ({ gig, musicians, username }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {musicians.filter(musician => musician.instrument === 'Sax').map(musician =>
+                                    {gig.band.Sax.map(name =>
                                         <tr>
-                                            <td className={musician.gigs[gig.gigName]}>
-                                                {musician.displayName}
+                                            <td className={musicians[name].gigs[gig.gigName]}>
+                                                {name}
                                             </td>
                                         </tr>
-                                    )}  
+                                    )}
                                 </tbody>
                             </table>
                         </td>
                     </tr>
                 </table>
             </div>
-            
         </div>
     )
 }

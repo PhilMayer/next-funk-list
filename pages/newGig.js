@@ -26,22 +26,7 @@ export default function newGig({session}) {
                     'venue': venue,
                     'description': description,
                     'pay': pay,
-                    'status': 'tentative',
-                'band': {
-                    'trumpets': [],
-                    'trombones': [],
-                    'tubas': [],
-                    'saxes': [],
-                    'vocals': [],
-                    'drums': []
-                }
-                    // if saving user objects here, don't need separate buckets for status
-                    // 'trumpets': { 'confirmed': [], 'iffy': [], 'nope': []}, 
-                    // 'trombones': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
-                    // 'tubas': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
-                    // 'saxes': { 'confirmed': [], 'iffy': [], 'nope': [] }, 
-                    // 'vocals': { 'confirmed': [], 'iffy': [], 'nope': [] },
-                    // 'drums': { 'confirmed': [], 'iffy': [], 'nope': [] }}
+                    'status': 'tentative'
                    }
         })
     }
@@ -81,7 +66,6 @@ export default function newGig({session}) {
 
 export async function getServerSideProps(context) {
     const session = await getSession(context)
-    console.log("SESSION:", session)
 
     return {
         props: {

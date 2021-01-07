@@ -48,11 +48,11 @@ table {
     display: flex;
 }
 .fixed{
-    width: 250px;
+    width: 300px;
 }
 .flex-item{
     flex-grow: 1;
-    margin-top: 63px
+    margin-top: 87px
 }
 
 button {
