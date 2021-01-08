@@ -48,7 +48,7 @@ export default function newGig({session}) {
                     <br></br>
                     <label>Date: </label>
                     <br></br>
-                    <input onChange={(e) => updateDate(e.target.value)}></input>
+                    <input type="date" onChange={(e) => updateDate(e.target.value)}></input>
                     <br></br>
                     <label>Call Time: </label>
                     <br></br>

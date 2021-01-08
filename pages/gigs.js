@@ -1,6 +1,7 @@
 import {connectToDatabase} from "../util/mongodb";
 import { getSession } from 'next-auth/client'
 import Gig from "../components/gig";
+import Nav from '../components/nav';
 
 export default function Gigs ({gigs, musicians, username}) {
 

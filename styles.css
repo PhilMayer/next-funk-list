@@ -68,3 +68,20 @@ td {
   vertical-align: top;
   min-width: 95px;
 }
+
+.landing-pic {
+  position: absolute;
+  left: 0px;
+  width:100%;
+  opacity: 0.8;
+}
+
+.funklist-header {
+  position: absolute;
+  top: 122px;
+  left: 250px;
+  color: white;
+  z-index: 1;
+  text-shadow: 9px -8px 11px black;
+  font-size: 150px
+}
