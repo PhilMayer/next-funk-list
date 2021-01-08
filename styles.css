@@ -49,13 +49,22 @@ table {
 }
 .fixed{
     width: 300px;
+    margin-top: 64px;
 }
 .flex-item{
     flex-grow: 1;
-    margin-top: 87px
+    
 }
 
 button {
   margin: 0 5px 10px 0;
 }
 
+input {
+  margin-bottom: 10px;
+}
+
+td {
+  vertical-align: top;
+  min-width: 95px;
+}

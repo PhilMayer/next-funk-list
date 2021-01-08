@@ -22,13 +22,12 @@ export async function getServerSideProps(context) {
     const session = await getSession(context);
 
     const {db} = await connectToDatabase();
-    const gigs = await db.collection('gigs').find({}).sort({date: -1}).toArray();
+    const gigs = await db.collection('gigs').find({}).sort({date: 1}).toArray();
     const musicians = await db.collection('users').find({}).toArray();
     const lookup = {};
     musicians.forEach(m => {
         lookup[m.displayName] = m;
     });
-    console.log("LOOKUP:", lookup)
     return { 
         props: { 
             gigs: JSON.parse(JSON.stringify(gigs)),

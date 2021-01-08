@@ -21,21 +21,21 @@ const Gig = ({ gig, musicians, username }) => {
         });
         if (res.status === 200) refreshData();
     }
-    debugger
+    
     return (
         <div className="container">
-            <div className="fixed">
+            <div className="flex-item">
                 <h2>{gig.displayName} {gig.date}</h2>
-                <p><b>Status:</b> Tentative</p>
-                <p><b>Venue:</b> 18-26 Palmetto St</p>
-                <p><b>Call Time:</b> 3pm</p>
-                <p><b>Hit Time:</b> 3:10pm</p>
+                <p><b>Status:</b> {gig.status}</p>
+                <p><b>Venue:</b> {gig.venue}</p>
+                <p><b>Call Time:</b> {gig.callTime}</p>
+                <p><b>Hit Time:</b> {gig.hitTime}</p>
                 <p><b>Captains:</b> Allison duh</p>
                 <p><b>Pay:</b> ${gig.pay}</p>
                 <p><b>Description:</b> {gig.description}</p>
 
             </div>
-            <div className="flex-item">
+            <div className="fixed">
 
                 <button value="yep" onClick={e => updateStatus(e)}>Going</button>
                 <button value="iffy" onClick={e => updateStatus(e)}>Iffy</button>
@@ -87,7 +87,61 @@ const Gig = ({ gig, musicians, username }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {gig.band.Sax.map(name =>
+                                    {gig.band.sax.map(name =>
+                                        <tr>
+                                            <td className={musicians[name].gigs[gig.gigName]}>
+                                                {name}
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td><b>Tubas</b></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {gig.band.tuba.map(name =>
+                                        <tr>
+                                            <td className={musicians[name].gigs[gig.gigName]}>
+                                                {name}
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td><b>Drums</b></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {gig.band.drums.map(name =>
+                                        <tr>
+                                            <td className={musicians[name].gigs[gig.gigName]}>
+                                                {name}
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td><b>Vocals</b></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {gig.band.vocals.map(name =>
                                         <tr>
                                             <td className={musicians[name].gigs[gig.gigName]}>
                                                 {name}

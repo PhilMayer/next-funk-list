@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import { getSession } from 'next-auth/client'
 
 
@@ -11,6 +12,8 @@ export default function newGig({session}) {
     const [venue, updateVenue] = React.useState('');
     const [description, updateDescription] = React.useState('');
     const [pay, updatePay] = React.useState(0);
+
+    const router = useRouter();
 
     const createGig = async (e) => {
         e.preventDefault();
@@ -28,33 +31,45 @@ export default function newGig({session}) {
                     'pay': pay,
                     'status': 'tentative'
                    }
-        })
+        });
+
+        router.push('/gigs');
     }
 
     return (
         <div>
+            <h1>THE FUNKLIST</h1>
+            <h3>NEW GIG</h3>
             <div >
                 <form>
-                    <label>GigName: </label>
+                    <label>Gig Name: </label>
+                    <br></br>
                     <input onChange={(e) => updateGigName(e.target.value)}></input>
                     <br></br>
                     <label>Date: </label>
+                    <br></br>
                     <input onChange={(e) => updateDate(e.target.value)}></input>
                     <br></br>
                     <label>Call Time: </label>
+                    <br></br>
                     <input onChange={(e) => updateCallTime(e.target.value)}></input>
                     <br></br>
                     <label>Hit Time: </label>
+                    <br></br>
                     <input onChange={(e) => updateHitTime(e.target.value)}></input>
                     <br></br>
                     <label>Venue: </label>
+                    <br></br>
                     <input onChange={(e) => updateVenue(e.target.value)}></input>
                     <br></br>
-                    <label>Description: </label>
-                    <input onChange={(e) => updateDescription(e.target.value)}></input>
-                    <br></br>
                     <label>Pay: </label>
+                    <br></br>
                     <input onChange={(e) => updatePay(e.target.value)}></input>
+                    <br></br>
+                    <label>Description: </label>
+                    <br></br>
+                    <textarea onChange={(e) => updateDescription(e.target.value)}></textarea>
+                    <br></br>
                     <br></br>
                     <button onClick={(e) => createGig(e)}>Submit</button>
                 </form>
